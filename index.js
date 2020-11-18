@@ -1,20 +1,23 @@
 
 const readline = require('readline-sync')
 
-function start() {
+const robots = {
+    search: require('./robots/search')
+}
+
+async function start() {
     const state = {}
 
-    state.searchRedditPage = askAndReturnAnswer('Type a Reddit page to search for: ')
-    state.video = {
-        title: askAndReturnAnswer('Type the video title: '),
-        episode: askAndReturnAnswer('Type the video episode: ')
-    }
+    state.searchRedditPage = 'watchpeopledieinside' //askAndReturnAnswer('Type a Reddit page to search for: ')
+
+    await robots.search(state)
+
+    console.log(state)
 
     function askAndReturnAnswer(question) {
         return readline.question(question)
     }
 
-    console.log(state)
 
 }
 
