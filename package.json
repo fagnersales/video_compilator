@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/fagnersales/video_compilator/issues"
   },
-  "homepage": "https://github.com/fagnersales/video_compilator#readme"
+  "homepage": "https://github.com/fagnersales/video_compilator#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
