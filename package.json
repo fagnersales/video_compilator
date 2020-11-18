@@ -1,0 +1,20 @@
+{
+  "name": "video_compilator",
+  "version": "1.0.0",
+  "description": "Compile memes into a single video and post in on youtube!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fagnersales/video_compilator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fagnersales/video_compilator/issues"
+  },
+  "homepage": "https://github.com/fagnersales/video_compilator#readme"
+}
