@@ -9,11 +9,11 @@ async function robot(state) {
     const baseURL = 'https://v.redd.it/'
 
     await downloadVideosFromURL(state)
-
-
+    
     async function downloadVideosFromURL(state) {
-
-        for (const post of state.redditData.slice(0, 2)) {
+        
+        for (const post of state.redditData.slice(0, state.videoAmount)) {
+            console.log(`> DownloadRobot: Trying to download the video from the post: ${post.permalink}`)
             await tryToDownloadVideo(post)
         }
 
@@ -21,6 +21,9 @@ async function robot(state) {
 
             const mediaURL = post.video.urls['scrubber'].split(baseURL)[1]
             const mediaID = mediaURL.split('/')[0]
+
+            console.log(`> DownloadRobot: Video scrubber_url: ${mediaURL}`)
+            console.log(`> DownloadRobot: Video media ID: ${mediaID}`)
 
             try {
                 const [resolution, video] = await getBestResolutionAndVideo()
