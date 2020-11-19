@@ -2,7 +2,8 @@
 const readline = require('readline-sync')
 
 const robots = {
-    search: require('./robots/search')
+    search: require('./robots/search'),
+    download: require('./robots/download')
 }
 
 async function start() {
@@ -11,8 +12,7 @@ async function start() {
     state.searchRedditPage = 'watchpeopledieinside' //askAndReturnAnswer('Type a Reddit page to search for: ')
 
     await robots.search(state)
-
-    console.log(state)
+    await robots.download(state)
 
     function askAndReturnAnswer(question) {
         return readline.question(question)
