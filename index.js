@@ -9,7 +9,8 @@ const robots = {
 async function start() {
     const state = {}
 
-    state.searchRedditPage = 'watchpeopledieinside' //askAndReturnAnswer('Type a Reddit page to search for: ')
+    state.searchRedditPage = askAndReturnAnswer('Type a Reddit page to search for: ')
+    state.videoAmount = askAndReturnAnswer('Type an amount of videos to be downloaded: ')
 
     await robots.search(state)
     await robots.download(state)
