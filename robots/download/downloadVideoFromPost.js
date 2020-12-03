@@ -8,15 +8,15 @@ const downloadAudioFromMediaID = require('./downloadAudioFromMediaID')
 async function downloadVideoFromPost({ post, state }) {
     console.log(`> DownloadRobot: Starting download video from post...`)
 
-    const mediaURL = post.videeo.urls['scrubber'].split(state.baseURL)[1]
+    const mediaURL = post.video.urls['scrubber'].split(state.baseURL)[1]
     const mediaID = mediaURL.split('/')[0]
 
     console.log(`> DownloadRobot: Video scrubber_url: ${mediaURL}`)
     console.log(`> DownloadRobot: Video media ID: ${mediaID}`)
-
+   
     try {
         const [resolution, video] = await getBestResolutionAndVideo({
-            baseURL,
+            baseURL: state.baseURL,
             mediaID,
             resolutions: state.videoQualities,
         })
@@ -42,6 +42,7 @@ async function downloadVideoFromPost({ post, state }) {
         else console.log(`> DOwnloadRobot: ${mediaID} does not has a buffer.`)
 
     } catch (error) {
+        console.log(error)
         return console.log(`> DownloadRobot: ${mediaID} has no available resolution.`)
     }
 }

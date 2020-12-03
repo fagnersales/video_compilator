@@ -13,7 +13,7 @@ function createResolutionsURLs({ resolution, mediaID, baseURL }) {
     return [resolution, superagent.get(`${baseURL}${mediaID}/DASH_${resolution}.mp4`)]
 }
 
-function findBestPossibleResolution([resolution, video]) {
+async function findBestPossibleResolution([resolution, video]) {
     const result = await video.then(() => true).catch(() => false)
     result
         ? console.log(`> DownloadRobot: ${resolution} is available, going to download it.`)

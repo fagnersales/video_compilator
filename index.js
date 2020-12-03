@@ -10,7 +10,9 @@ const robots = {
 async function start() {
     console.log(`> Main: Starting...`)
     
-    const state = {}
+    const state = {
+        baseURL: 'https://v.redd.it/'
+    }
 
     const videoQualities = ['1080', '720', '480', '96', '2_4_M', '1_2_M']
 
