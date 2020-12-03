@@ -5,7 +5,7 @@ const { join } = require('path')
 
 
 async function robot(state) {
-    const resolutions = [1080, 720, 480, 96, '2_4_M', '1_2_M']
+    const resolutions = state.videoQualities
     const baseURL = 'https://v.redd.it/'
 
     await downloadVideosFromURL(state)
